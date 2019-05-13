@@ -58,3 +58,13 @@ Add this to your .bash_profile on thoth to have colors.
 (atleast if you are ssh'ing from bash, no promises for putty)
 
 export PS1="[\[\033[1;32m\]\h\[\033[0m\] \[\033[1;34m\]\w\[\033[0m\]]: ";
+
+
+Thoth mounts the university's AFS (its a file system).
+By default the home directory only gives you 4MB.
+You can upgrade to 1GB with the following:
+	1) Login to my.pitt.edu
+	2) Click “Profile” at the top right (next to your email).
+	3) Click “Manage your account” in the middle of the screen.
+	4) Click “Manage Email Quota” on the left. It’ll take a little while to load.
+	5) Click the “Increase my UNIX Quota” button.
