@@ -24,15 +24,15 @@ You can manually move files between your local machine and thoth via the scp com
 Local to Thoth:
 	scp file_to_transfer username@thoth.cs.pitt.edu:~/path_from_home_directory
 Thoth to Local
-	scp username@thoth.cs.pitt.edu:~/path_from_home_directory local_storage_path
+	scp username@thoth.cs.pitt.edu:~/path_from_home_directory_to_file local_storage_path
 
 Many editors/IDEs also have ftp plugins which can manage this for you.
 
 
 
-If you want to quickly edit some files on thoth but have not set up any ftp yet,
-you may want to use nano for the following. nano does not have that many features 
-but it fine for text editing.
+If you want to quickly edit some files on thoth but have not set up any ftp and don't
+have experience with command line editors, you may want to use nano for the following. 
+nano does not have that many features but it is the simplest of the editors on thoth.
 
 From your home directory on thoth (cd ~):
 	chmod u+rw .bash_profile
