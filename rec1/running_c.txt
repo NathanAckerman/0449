@@ -9,8 +9,6 @@ this will create an executable named test
 to run the executable:
 	./test
 
-try compiling example0.c and running it on thoth.
-to download this repo onto thoth you can use git:
-	git clone https://github.com/NathanAckerman/0449.git
 
-read example0.c to see what it is doing and compare that with the output.
+on thoth, create a copy of hello.c and compile and run it.
+(alternatively you can create it on your own machine and push it to thoth)
