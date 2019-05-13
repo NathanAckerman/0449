@@ -13,6 +13,7 @@ If connecting from linux/mac:
 If connecting from windows:
 	download putty and use that with the thoth's hostname and your username
 
+The first time logging in, it will ask you to confirm a key. Say yes.
 
 You can edit files directly on thoth via any command line editor (vim, emacs, nano, pico).
 If you wish to use an editor on your local machine, you can use an ftp client to edit
@@ -25,6 +26,23 @@ Local to Thoth:
 Thoth to Local
 	scp username@thoth.cs.pitt.edu:~/path_from_home_directory local_storage_path
 
+Many editors/IDEs also have ftp plugins which can manage this for you.
+
+
+
+If you want to quickly edit some files on thoth but have not set up any ftp yet,
+you may want to use nano for the following. nano does not have that many features 
+but it fine for text editing.
+
+From your home directory on thoth (cd ~):
+	chmod u+rw .bash_profile
+
+To use nano to edit files:
+	nano .bash_profile (opens file in the editor)
+	--make changes to file here
+	ctrl+o to save
+	--press enter to confirm filename
+	ctrl+x to exit nano
 
 To get man pages to work on thoth:
 Edit ~/.bash_profile and add this to the end
