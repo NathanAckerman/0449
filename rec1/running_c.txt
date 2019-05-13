@@ -12,3 +12,9 @@ to run the executable:
 
 on thoth, create a copy of hello.c and compile and run it.
 (alternatively you can create it on your own machine and push it to thoth)
+
+
+download another example on thoth with:
+	wget -O example0.c https://raw.githubusercontent.com/NathanAckerman/0449/master/rec1/example0.c	
+
+compile and run this file and check its source code against its output
