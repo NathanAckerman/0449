@@ -1,0 +1,42 @@
+In this class we will be using thoth for labs.
+
+Thoth is a server hosted at pitt running Linux v2.6.
+
+The hostname is thoth.cs.pitt.edu
+
+You can connect to thoth via an ssh session (secure shell).
+This gives you a command line interface to thoth.
+
+If connecting from linux/mac:
+	use bash and enter the command
+	ssh username@thoth,cs.pitt.edu
+If connecting from windows:
+	download putty and use that with the thoth's hostname and your username
+
+
+You can edit files directly on thoth via any command line editor (vim, emacs, nano, pico).
+If you wish to use an editor on your local machine, you can use an ftp client to edit
+the files locally and push the changed files to thoth for testing.
+On Linux/Mac/Windows you can use FileZilla. On Windows you can also use WinSCP.
+
+You can manually move files between your local machine and thoth via the scp command (bash).
+Local to Thoth:
+	scp file_to_transfer username@thoth.cs.pitt.edu:~/path_from_home_directory
+Thoth to Local
+	scp username@thoth.cs.pitt.edu:~/path_from_home_directory local_storage_path
+
+
+To get man pages to work on thoth:
+Edit ~/.bash_profile and add this to the end
+
+if [ "$HOSTNAME" = "thoth.cs.pitt.edu" ]; then 
+	source /opt/set_specific_profile.sh;
+fi
+
+
+
+Sometimes command line colors dont work out of the box via ssh.
+Add this to your .bash_profile on thoth to have colors.
+(atleast if you are ssh'ing from bash, no promises for putty)
+
+export PS1="[\[\033[1;32m\]\h\[\033[0m\] \[\033[1;34m\]\w\[\033[0m\]]: ";
