@@ -9,7 +9,7 @@ This gives you a command line interface to thoth.
 
 If connecting from linux/mac:
 	use bash and enter the command
-	ssh username@thoth,cs.pitt.edu
+	ssh username@thoth.cs.pitt.edu
 If connecting from windows:
 	download putty and use that with the thoth's hostname and your username
 
