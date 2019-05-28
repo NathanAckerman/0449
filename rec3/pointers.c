@@ -4,6 +4,8 @@ int indexing1();
 int indexing2();
 int indexing3();
 int indexing4();
+void func();
+void func2();
 
 int main(int argc, char *argv[])
 {
@@ -49,7 +51,11 @@ int main(int argc, char *argv[])
 	printf("indexing1: %d\n", indexing1(arr, 2));
 	printf("indexing2: %d\n", indexing2(arr, 2));
 	printf("indexing3: %d\n", indexing3(arr, 2));
-	printf("indexing4: %d\n", indexing4(arr, 2));
+	printf("indexing4: %d\n\n", indexing4(arr, 2));
+
+
+
+	func();
 	return 0;
 }
 
@@ -72,4 +78,22 @@ int indexing3(int arr[], int ind)
 int indexing4(int arr[], int ind)
 {
 	return *(arr+ind);
+}
+
+void func()
+{
+	int a = 8;
+	int b = 10;
+	printf("addr of a is %p\n", &a);
+	printf("addr of b is %p\n", &b);
+	func2();
+}
+
+void func2()
+{
+
+	int c = 8;
+	int d = 10;
+	printf("addr of c is %p\n", &c);
+	printf("addr of d is %p\n", &d);
 }
