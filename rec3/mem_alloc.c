@@ -18,12 +18,15 @@ int main(int argc, char *argv[])
 	printf("arr[8] = %d\n", arr[8]);
 
 
-	printf("enter an new int (try twice, once 25, once 200000:\n");
+	printf("enter an new larger int (try twice, once 25, once 200000):\n");
 	scanf("%d", &int_input);
 	arr = realloc(arr, sizeof(int)*int_input);
 	printf("arr after realloc = %p\n", arr); 
 	printf("arr[8] = %d\n", arr[8]);
 	arr[22] = 22;
 	printf("arr[22] = %d\n", arr[22]);
+
+
+	free(arr);
 	return 0;
 }
