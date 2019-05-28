@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 
 	//casted to char * because otherwise it is pointer arithmetic and will give 1
 	//technically it is still pointer arithmetic but on the scale we want
-	//notice that 4 is the size of one int on your system
+	//notice that the difference is the size of one int on your system
 	printf("difference in address of x and y is %ld\n\n", ((char *)py)-((char *)px));
 
 
