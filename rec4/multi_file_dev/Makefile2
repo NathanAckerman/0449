@@ -1,0 +1,14 @@
+test: test.o func1.o func2.o
+	gcc test.o func1.o func2.o -o test
+
+test.o: test.c
+	gcc -c test.c
+
+func1.o: func1.c
+	gcc -c func1.c
+
+func2.o: func2.c
+	gcc -c func2.c
+
+clean:
+	rm -rf *o test

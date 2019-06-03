@@ -1,0 +1,2 @@
+test:
+	gcc test.c func1.c func2.c -o test

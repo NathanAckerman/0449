@@ -1,0 +1,12 @@
+CC=gcc
+CFLAGS=-c -Wall
+OBJECTS=$(patsubst %.c,%.o,$(wildcard *.c))
+
+test: $(OBJECTS)
+	$(CC) $(OBJECTS) -o $@
+
+%.o: %.c
+	$(CC) -c $(CFLAGS) $^
+
+clean:
+	rm -rf *o test
