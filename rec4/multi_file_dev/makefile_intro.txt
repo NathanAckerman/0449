@@ -1,3 +1,62 @@
 In this directory there are 5 example makefiles, each one adding a new element.
 
+When you type make, the system looks for a file called Makefile by default.
+In order to use these makefiles, you must make a copy of them called Makefile.
 
+__________________________________________________________________________________
+
+Makefile1
+
+This makefile is to give a basic introduction to the syntax.
+Note that the gcc line in this file is what you would run on the command line to compile.
+The basic syntax of a makefile rule is
+
+target: dependencies
+	what to run
+
+By default when you type make, the first target is called. You cn compile this by running
+make, or make test. make <target> will jump to a specified target.
+
+_________________________________________________________________________________
+
+Makefile2
+
+This makefile is to show how dependencies work. Each c file is compiled into object files,
+and then the object files are compiled into an executable.
+Adding -c flag to gcc will tell the compiler to create an object file (.o) instead of an executable.
+When a dependency is needed for a target, that dependency is recompiled only if its source
+code has been modified since the last compilation. This saves a tremendous amount of time when
+compiling larger projects (turns a 2 hour kernel compile into 3-10 mins).
+
+_______________________________________________________________________________________
+
+Makefile3
+
+The point of this makefile is to introduce variables. It is useful to define what compiler
+and flags you wish to use for your compilation. Then you would only need to update CFLAGS
+if you wish to add something like -Werror, instead of adding it to every target.
+
+
+________________________________________________________________________________________
+
+
+Makefile4
+
+This one just introduces the objects variable as a list of objects for the dependencies.
+At thi point, all of the targets are still written out, but this will be simplified in the
+next makefile.
+
+____________________________________________________________________________________________
+
+Makefile5
+
+This one creates the objects list by taking every .c file in the directory and replacing
+the extension with .o
+Additionally, standard makefile variables are used to eliminate the need to write out targets 
+for all of the dependencies.
+
+$@ means the target of the current rule
+$^ means any dependencies
+
+%.o: %.c means for any target ending in .o, use this rule with the dependency of the .c file
+	associated with the same name.

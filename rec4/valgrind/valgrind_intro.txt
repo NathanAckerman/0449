@@ -1,0 +1,73 @@
+The files in this directory are extremely simpified versions of common errors in c.
+The point of this is to become comfortable using valgrind and determining the error form the
+output of valgrind.
+
+You can do a general check of memory usage with "valgrind --tool=memcheck ./my_program"
+You can also look for specific errors.
+________________________________________________________________________________________
+
+leak.c
+
+This file is a very simple memory leak. Memory is allocated and not freed.
+compile and run with: gcc -g leak.c -o leak && ./leak
+-notice there are no errors
+-for larger programs, letting the memory you have allocated build up will be problematic.
+
+run with valgrind: valgrind --leak-check=full ./leak
+
+notice the lines
+
+==29440== 4 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==29440==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==29440==    by 0x10865B: main (leak.c:6)
+
+the malloc on line 6 is never freed
+
+--notice that if you run valgrind --tool=memcheck ./leak, you can see a mismatch in the
+number of allocs/frees, but no error is reported
+_________________________________________________________________________________________
+
+size_err.c
+
+This file involves writing past the end of an array (some malloc'd memory).
+int is used instead of long, so the array is not big enough
+
+compile and run with: gcc -g size_err.c -o size_err && ./size_err
+--"Segmentation fault (core dumped)" is not a very useful error message
+
+run in valgrind with: valgrind --tool=memcheck ./size_err
+
+==29636== Invalid write of size 8
+==29636==    at 0x108680: main (size_err.c:9)
+==29636==  Address 0x522d068 is 0 bytes after a block of size 40 alloc'd
+==29636==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==29636==    by 0x10865B: main (size_err.c:6)
+
+this tells you the write at line 9 is causing the arror because it starts after the end of the array
+
+_______________________________________________________________________________________________
+
+stack_smash.c
+
+This file writes past the end of an array. sizeof gives the amount of bytes the array takes up,
+not how many elements are in it.
+
+to compile and run: gcc -g stack_smash.c -o stack_smash && ./stack_smash
+--another useless seg fault error msg
+
+run under valgrind: valgrind --tool=memcheck ./stack_smash
+
+==30110== Invalid write of size 8
+==30110==    at 0x10861F: main (stack_smash.c:9)
+==30110==  Address 0x1fff001000 is not stack'd, malloc'd or (recently) free'd
+
+tells you the line where the error is happening
+
+_____________________________________________________________________________________________
+
+
+
+
+
+
+
