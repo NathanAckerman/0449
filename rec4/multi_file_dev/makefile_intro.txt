@@ -1,0 +1,3 @@
+In this directory there are 5 example makefiles, each one adding a new element.
+
+
